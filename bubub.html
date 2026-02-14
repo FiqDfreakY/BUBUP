@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOR CAYANKU</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+    background:url("pic/foto5.jpeg") no-repeat center center fixed;
+    background-size:cover;
+    color:white;
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+}
+
+/* HERO */
+.hero{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+.hero h1{font-family:'Playfair Display',serif;font-size:3.5em;animation:fadeIn 2s forwards;}
+.hero p{margin-top:15px;font-size:1.2em;animation:fadeIn 3s forwards;}
+.video-btn{
+    margin-top:30px;
+    padding:12px 28px;
+    border-radius:30px;
+    border:none;
+    background:#ff4d6d;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+.video-btn:hover{background:#ff1f4b;}
+
+/* MEMORY */
+.memories{padding:80px 10%;}
+.memories h2{text-align:center;margin-bottom:50px;font-family:'Playfair Display',serif;font-size:2.5em;}
+.memory-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+.memory-card{
+    background:rgba(0,0,0,.4);
+    backdrop-filter:blur(10px);
+    border-radius:20px;
+    padding:20px;
+    transition:.4s;
+    opacity:0;
+    transform:translateY(30px);
+}
+.memory-card.show{opacity:1;transform:translateY(0);}
+.memory-card:hover{transform:scale(1.05);}
+.memory-card img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+/* LETTER */
+.letter{padding:100px 15%;text-align:center;}
+.letter h2{font-family:'Playfair Display',serif;margin-bottom:30px;font-size:2.5em;}
+.letter p{line-height:1.8;font-size:1.1em;max-width:700px;margin:auto;}
+
+/* VIDEO POPUP */
+.video-popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.8);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+.video-content{background:#111;padding:20px;border-radius:20px;width:90%;max-width:500px;}
+.video-content video{width:100%;border-radius:15px;}
+
+/* HEARTS */
+.heart{
+    position:fixed;
+    color:rgba(255,255,255,0.3);
+    animation:floatUp linear infinite;
+}
+
+/* FLOWER */
+.flower{
+    position:fixed;
+    top:-50px;
+    animation:fall linear infinite;
+    font-size:22px;
+}
+
+@keyframes fall{
+    to{transform:translateY(110vh) rotate(360deg);}
+}
+
+@keyframes floatUp{
+    from{transform:translateY(100vh);opacity:0;}
+    to{transform:translateY(-10vh);opacity:0;}
+}
+
+@keyframes fadeIn{to{opacity:1;}}
+
+/* SPLASH */
+.splash{
+    position:fixed;
+    pointer-events:none;
+    animation:splashAnim .8s forwards;
+    font-size:20px;
+}
+@keyframes splashAnim{
+    to{transform:scale(2) translate(var(--x),var(--y));opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<audio id="bgMusic" autoplay loop>
+    <source src="asset/music.mp3" type="audio/mp3">
+</audio>
+
+<section class="hero">
+    <h1>HAPPY VALENTINE CAAAYANK 😘</h1>
+    <p>semoga kamu suka yahk walaupun hasil prompt gpt 😁</p>
+    <button class="video-btn" onclick="openVideo(event)">PIDIO YANG GA KAMU SUKA!</button>
+</section>
+
+<section class="memories">
+<h2>berikut foto foto imut MY CAYANK</h2>
+<div class="memory-grid">
+<div class="memory-card"><img src="pic/foto1.jpeg"><p>NAHHH INI IMUT</p></div>
+<div class="memory-card"><img src="pic/foto2.jpeg"><p>ini urmmmmm.... ahhhh....... HELM KAMU KEBALIK ITU BENERIN DULU </p></div>
+<div class="memory-card"><img src="pic/foto3.jpeg"><p>waktu km ngambek di belkop 🥵</p></div>
+<div class="memory-card"><img src="pic/foto4.jpeg"><p>mo balapan di cipto BRUM BRUM</p></div>
+<div class="memory-card"><img src="pic/foto6.jpeg"><p>sednk mekup 😋</p></div>
+<div class="memory-card"><img src="pic/foto7.jpeg"><p>MENUJU KAMPUS DALAM KEADAAN IMUT???!!</p></div>
+<div class="memory-card"><img src="pic/foto8.jpeg"><p>yh kita muter semarang sampe subuh</p></div>
+<div class="memory-card"><img src="pic/foto9.jpeg"><p>kita prank gembel sebenernya qt ceo</p></div>
+</div>
+</section>
+
+<section class="letter">
+<h2>pesan tersirat 🥵</h2>
+<p>
+TERIMAKASIH CAYANKKKKKK SUDAH BERTAHAN SELAMA INIHHHHH INI HADIAH VALENTINE DARI KUH BUAT KAMUH ( yh wlaupun prompt gpt, TAPI SISANYA AKU SENDIRI KOK ) INI HADIAH DARI KU PERTAMA KALI DI HARI VALENTINE SELAMA SEUMUR HIDUP TERIMAKASIH YAHHH SUDAH MW MENERIMA AK YNG PRIK INIH SEMOGA KM TIDAK BOSAN BOSAN DGN Q, 
+<br><br>❤️
+<BR></BR> SEMOGA SUKA!!!!
+</p>
+</section>
+
+<div class="video-popup" id="videoPopup" onclick="closeVideo()">
+<div class="video-content" onclick="event.stopPropagation()">
+<video id="memoryVideo" controls>
+<source src="asset/WhatsApp Video 2026-02-14 at 22.41.00.mp4" type="video/mp4">
+</video>
+</div>
+</div>
+
+<script>
+const cards=document.querySelectorAll('.memory-card');
+window.addEventListener('scroll',()=>{
+cards.forEach(card=>{
+if(card.getBoundingClientRect().top<window.innerHeight-100){
+card.classList.add('show');
+}
+});
+});
+
+// hearts
+setInterval(()=>{
+const h=document.createElement("div");
+h.className="heart";
+h.innerHTML="❤";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=Math.random()*20+10+"px";
+h.style.animationDuration=Math.random()*5+5+"s";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),10000);
+},800);
+
+// flowers
+setInterval(()=>{
+const f=document.createElement("div");
+f.className="flower";
+f.innerHTML="🌸";
+f.style.left=Math.random()*100+"vw";
+f.style.animationDuration=Math.random()*5+5+"s";
+document.body.appendChild(f);
+setTimeout(()=>f.remove(),10000);
+},1200);
+
+function openVideo(e){
+for(let i=0;i<15;i++){
+const s=document.createElement("div");
+s.className="splash";
+s.innerHTML="🌸";
+s.style.left=e.clientX+"px";
+s.style.top=e.clientY+"px";
+s.style.setProperty("--x",(Math.random()*200-100)+"px");
+s.style.setProperty("--y",(Math.random()*200-100)+"px");
+document.body.appendChild(s);
+setTimeout(()=>s.remove(),800);
+}
+videoPopup.style.display="flex";
+memoryVideo.play();
+}
+function closeVideo(){
+memoryVideo.pause();
+memoryVideo.currentTime=0;
+videoPopup.style.display="none";
+}
+</script>
+
+</body>
+</html>
